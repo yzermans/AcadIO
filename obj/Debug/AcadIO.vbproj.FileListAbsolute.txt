@@ -1,0 +1,10 @@
+C:\Documents and Settings\mfy\Local Settings\Application Data\Temporary Projects\AcadIO\bin\Debug\AcadIO.exe
+C:\Documents and Settings\mfy\Local Settings\Application Data\Temporary Projects\AcadIO\bin\Debug\AcadIO.pdb
+C:\Documents and Settings\mfy\Local Settings\Application Data\Temporary Projects\AcadIO\bin\Debug\AcadIO.xml
+C:\Documents and Settings\mfy\Local Settings\Application Data\Temporary Projects\AcadIO\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\mfy\Local Settings\Application Data\Temporary Projects\AcadIO\obj\Debug\AcadIO.Form1.resources
+C:\Documents and Settings\mfy\Local Settings\Application Data\Temporary Projects\AcadIO\obj\Debug\AcadIO.Resources.resources
+C:\Documents and Settings\mfy\Local Settings\Application Data\Temporary Projects\AcadIO\obj\Debug\AcadIO.vbproj.GenerateResource.Cache
+C:\Documents and Settings\mfy\Local Settings\Application Data\Temporary Projects\AcadIO\obj\Debug\AcadIO.exe
+C:\Documents and Settings\mfy\Local Settings\Application Data\Temporary Projects\AcadIO\obj\Debug\AcadIO.xml
+C:\Documents and Settings\mfy\Local Settings\Application Data\Temporary Projects\AcadIO\obj\Debug\AcadIO.pdb
