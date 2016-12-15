@@ -31,7 +31,6 @@ Public Class frmMain
     Dim ErrorString As String
     Dim FilesLoaded As Boolean
 
-
 #Region "Treeview"
 
     Private Sub tvwSetup()
@@ -40,7 +39,7 @@ Public Class frmMain
         d = System.IO.Directory.GetLogicalDrives()
         If dimVar(d) Then
             For i = 0 To UBound(d)
-                Debug.WriteLine(d(i))
+                'Debug.WriteLine(d(i))
                 Dim oNode As New System.Windows.Forms.TreeNode
                 Try
                     oNode.ImageIndex = 0    ' Closed folder
@@ -252,7 +251,7 @@ MemberExit:
             On Error Resume Next
             itmx = lvwACAD.Items(i)
             If itmx.Selected = True Then
-                Debug.WriteLine(itmx.SubItems(5).Text)
+                'Debug.WriteLine(itmx.SubItems(5).Text)
                 clItem = itmx
                 Exit For
             End If
@@ -300,7 +299,6 @@ MemberExit:
         Dim cache As String
         Dim selIdx As Integer
 
-
         With lv
             If .SelectedItems.Count = 0 Then
                 Exit Sub
@@ -316,7 +314,7 @@ MemberExit:
                 ' to cache so we can move the selected row up
                 For i = 0 To .Items(selIdx).SubItems.Count - 1
                     cache = .Items(selIdx - 1).SubItems(i).Text
-                    .Items(selIdx - 1).SubItems(i).Text = _
+                    .Items(selIdx - 1).SubItems(i).Text =
                        .Items(selIdx).SubItems(i).Text
                     .Items(selIdx).SubItems(i).Text = cache
                 Next
@@ -334,7 +332,7 @@ MemberExit:
                 ' to cache so we can move the selected row down
                 For i = 0 To .Items(selIdx).SubItems.Count - 1
                     cache = .Items(selIdx + 1).SubItems(i).Text
-                    .Items(selIdx + 1).SubItems(i).Text = _
+                    .Items(selIdx + 1).SubItems(i).Text =
                        .Items(selIdx).SubItems(i).Text
                     .Items(selIdx).SubItems(i).Text = cache
                 Next
@@ -381,13 +379,12 @@ MemberExit:
         Dim renFile As String
         Dim cnt As Long
 
-
         Dim tStr As String
         Dim ft As New FileTools
         tStr = Replace(CurrentFolder, "\\", "\")
         Dim fg As Object
         Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor
-        'get all dwg files in sub folders 
+        'get all dwg files in sub folders
         ft.FileExt = ".DWG" 'add period to distinguish type
         ft.FindFolders(tStr)
         fg = ft.FilesList
@@ -406,7 +403,6 @@ MemberExit:
         tssPlots1.Text = lvwACAD.Items.Count & " Files"
         Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default
     End Sub
-
 
     Private Sub PopulateSelected()
         FilesLoaded = False
@@ -455,12 +451,12 @@ MemberExit:
         FilesLoaded = True
     End Sub
 
-    <STAThread()> _
-     Shared Sub Main()
+    <STAThread()>
+    Shared Sub Main()
         Application.Run(New frmMain)
     End Sub 'Main
 
-    <StructLayout(LayoutKind.Sequential)> _
+    <StructLayout(LayoutKind.Sequential)>
     Structure RECT
         Public left As Integer
         Public top As Integer
@@ -468,7 +464,7 @@ MemberExit:
         Public bottom As Integer
     End Structure 'RECT
 
-    <DllImport("user32.dll")> _
+    <DllImport("user32.dll")>
     Private Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal wMsg As Integer, ByVal wParam As Integer, ByRef lParam As RECT) As Integer
     End Function
 
@@ -628,7 +624,7 @@ MemberExit:
     Private Sub txtEditList_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtEditList.Leave
         If txtEditList.Visible Then
             If col = 1 Then
-                Debug.WriteLine(row)
+                'Debug.WriteLine(row)
             End If
         End If
         'PopulateRevisions()
@@ -639,9 +635,9 @@ MemberExit:
             If col = 2 Then
                 Dim item2 As New ListViewItem
                 item2 = lvwACAD.Items(row - 1)
-                Debug.WriteLine(item2.SubItems(0).Text)
-                Debug.WriteLine(item2.SubItems(1).Text)
-                Debug.WriteLine(item2.SubItems(2).Text)
+                'Debug.WriteLine(item2.SubItems(0).Text)
+                'Debug.WriteLine(item2.SubItems(1).Text)
+                'Debug.WriteLine(item2.SubItems(2).Text)
                 item2.SubItems(1).Text = cboEditList.Text
                 lvwACAD.Items(row - 1) = item2
                 lvwACAD.Invalidate()
@@ -655,9 +651,9 @@ MemberExit:
             If col = 3 Then
                 Dim item2 As New ListViewItem
                 item2 = lvwACAD.Items(row - 1)
-                Debug.WriteLine(dtpPlotDate.Text)
-                Debug.WriteLine(item2.SubItems(1).Text)
-                Debug.WriteLine(item2.SubItems(2).Text)
+                'Debug.WriteLine(dtpPlotDate.Text)
+                'Debug.WriteLine(item2.SubItems(1).Text)
+                'Debug.WriteLine(item2.SubItems(2).Text)
                 item2.SubItems(2).Text = dtpPlotDate.Value.ToShortDateString
                 lvwACAD.Items(row - 1) = item2
                 lvwACAD.Invalidate()
@@ -695,7 +691,6 @@ MemberExit:
         Me.MoveListViewItem(Me.lvwACAD, moveUp:=False)
     End Sub
 
-
 #End Region
 
 #Region "Auto Updates"
@@ -713,7 +708,6 @@ MemberExit:
             Next
         End If
     End Sub
-
 
 #End Region
 
@@ -736,7 +730,7 @@ MemberExit:
         End If
         acReg = acReg & "\TIFF.pmp"
         'If Not File.Exists(acReg) Then
-        Dim rm As New ResourceManager("Fabcon.Plot.DesignSurface.Acad", _
+        Dim rm As New ResourceManager("Fabcon.Plot.DesignSurface.Acad",
             [Assembly].GetExecutingAssembly())
         Dim rdr As Object
         rdr = rm.GetObject("TIFF.pmp")
@@ -767,7 +761,7 @@ MemberExit:
         End If
         acReg = acReg & "\TIFF.pc3"
         'If Not File.Exists(acReg) Then
-        Dim rm As New ResourceManager("Fabcon.Plot.DesignSurface.Acad", _
+        Dim rm As New ResourceManager("Fabcon.Plot.DesignSurface.Acad",
             [Assembly].GetExecutingAssembly())
         Dim rdr As Object
         rdr = rm.GetObject("TIFF.pc3")
@@ -798,7 +792,7 @@ MemberExit:
         End If
         acReg = acReg & "\Tiff.ctb"
         'If Not File.Exists(acReg) Then
-        Dim rm As New ResourceManager("Fabcon.Plot.DesignSurface.Acad", _
+        Dim rm As New ResourceManager("Fabcon.Plot.DesignSurface.Acad",
             [Assembly].GetExecutingAssembly())
         Dim rdr As Object
         rdr = rm.GetObject("Tiff.ctb")
@@ -839,7 +833,6 @@ MemberExit:
         prgPlots.Value = 0
         tssPlots1.Text = "Ready: " & lvwACAD.Items.Count & " Files"
     End Sub
-
 
 #End Region
 
@@ -990,7 +983,7 @@ MemberExit:
                             'UPGRADE_WARNING: Couldn't resolve default property of object AcadDOC.GetVariable(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
                             dwgName = AcadDOC.GetVariable("DWGNAME")
                             sysVarName = Replace(UCase(dwgName), ".DWG", "")
-                            Debug.Print(sysVarName & "|" & System.Math.Round(wd, 2) & "," & System.Math.Round(ht, 2)) '& Chr(10)
+                            'Debug.Print(sysVarName & "|" & System.Math.Round(wd, 2) & "," & System.Math.Round(ht, 2)) '& Chr(10)
                         End If
                     Next att
                     If sysVarName = "" Then
@@ -1006,7 +999,7 @@ MemberExit:
                         'UPGRADE_WARNING: Couldn't resolve default property of object AcadDOC.GetVariable(). Click for more: 'ms-help://MS.VSCC.v90/dv_commoner/local/redirect.htm?keyword="6A50421D-15FE-4896-8A1B-2EC21E9037B2"'
                         dwgName = AcadDOC.GetVariable("DWGNAME")
                         sysVarName = Replace(UCase(dwgName), ".DWG", "")
-                        Debug.Print(sysVarName & "|" & System.Math.Round(wd, 2) & "," & System.Math.Round(ht, 2)) '& Chr(10)
+                        'Debug.Print(sysVarName & "|" & System.Math.Round(wd, 2) & "," & System.Math.Round(ht, 2)) '& Chr(10)
                     End If
                 End If
             Else
@@ -1125,7 +1118,6 @@ MemberExit:
                 attributeObj.Visible = False
             End If
 
-
             'Hide Attdefs
             If chkAtt.CheckState = 1 Then
                 ssAtts = ssGet("*", "*")
@@ -1160,7 +1152,7 @@ MemberExit:
                         wd = maxData(0) - minData(0)
                         dwgName = AcadDOC.GetVariable("DWGNAME")
                         sysVarName = Replace(UCase(dwgName), ".DWG", "")
-                        Debug.Print(sysVarName & "|" & System.Math.Round(wd, 2) & "," & System.Math.Round(ht, 2)) '& Chr(10)
+                        'Debug.Print(sysVarName & "|" & System.Math.Round(wd, 2) & "," & System.Math.Round(ht, 2)) '& Chr(10)
                     End If
                 End If
             Else
@@ -1183,7 +1175,6 @@ MemberExit:
                 acblk.Delete()
                 AcadDOC.SaveAs(dwgName)
             End If
-
 
             If chkInsert.CheckState = 0 Then
                 'fix any problems found
@@ -1381,7 +1372,7 @@ byPass:
         Dim lItem As AutoCAD.AcadLayout
         Dim point1(1) As Double
         'Dim point2(0 To 1) As Double
-        lItem = AcadDOC.Layouts.item("Layout1")
+        lItem = AcadDOC.Layouts.Item("Layout1")
         'Dim extMin As Variant
         'Dim extMax As Variant
 
@@ -1473,7 +1464,7 @@ byPass:
                 AcadDOC.SaveAs(savFile, AutoCAD.AcSaveAsType.acR15_dwg)
             End If
         Else
-            Debug.Print("Error File: " & savFile)
+            'Debug.Print("Error File: " & savFile)
         End If
         'WFR
         'epsIt
@@ -1540,7 +1531,7 @@ byPass:
         Dim cnt As Integer
         If dimVar(ArrVals) Then
             'Debug.Print UBound(ArrVals)
-            FileNoW = FreeFile
+            FileNoW = FreeFile()
             FileOpen(FileNoW, fname, OpenMode.Append)
             For cnt = 0 To UBound(ArrVals)
                 PrintLine(FileNoW, ArrVals(cnt))
@@ -1549,8 +1540,6 @@ byPass:
         End If
     End Sub
 #End Region
-
-
 
     Private Sub frmMain_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'PreviewToolStripMenuItem.Enabled = False
@@ -1577,7 +1566,6 @@ byPass:
     Private Sub cmdSelect_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSelect.Click
         filArray()
     End Sub
-
 
 #Region "lvobjects context menu"
     Private Sub tsmiSelectAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsmiSelectAll.Click

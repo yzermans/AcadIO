@@ -86,3 +86,12 @@ C:\Git_Fabcon\AcadIO\bin\Debug\AcadIO1.exe.config
 C:\Git_Fabcon\AcadIO\obj\Debug\AcadIO1.exe
 C:\Git_Fabcon\AcadIO\obj\Debug\AcadIO1.xml
 C:\Git_Fabcon\AcadIO\obj\Debug\AcadIO1.pdb
+C:\Git_Fabcon\AcadIO\bin\Debug\AcadIO1.exe
+C:\Git_Fabcon\AcadIO\bin\Debug\AcadIO1.pdb
+C:\Git_Fabcon\AcadIO\bin\Debug\AcadIO1.xml
+C:\Git_Fabcon\AcadIO\bin\Debug\Interop.AutoCAD.dll
+C:\Git_Fabcon\AcadIO\bin\Debug\stdole.dll
+C:\Git_Fabcon\AcadIO\obj\Debug\AcadIO1.vbprojResolveAssemblyReference.cache
+C:\Git_Fabcon\AcadIO\obj\Debug\AcadIO.frmMain.resources
+C:\Git_Fabcon\AcadIO\obj\Debug\AcadIO.Resources.resources
+C:\Git_Fabcon\AcadIO\obj\Debug\AcadIO1.vbproj.GenerateResource.Cache
